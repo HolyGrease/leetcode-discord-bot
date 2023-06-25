@@ -10,6 +10,9 @@ jobs:
    run:
     runs-on: ubuntu-latest
     steps:
-      name: Run
-      run: |
-        docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/leetcode-discord-bot:latest
+      - name: Run
+        uses: tj-actions/docker-run@v2
+        with:
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/leetcode-discord-bot:latest
+          name: leetcode-discrod-bot
+          options: --env DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} DISCORD_CHANNEL_ID=${{ secrets.DISCORD_CHANNEL_ID }}
