@@ -1,1 +1,1 @@
-# leetcode-discrod-bot
+# leetcode-discord-bot
