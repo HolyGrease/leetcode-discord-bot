@@ -1,8 +1,0 @@
-discord:
-  api_endpoint: "https://discord.com/api/channels"
-  token: ""
-  channel_id: ""
-leetcode:
-  api_endpoint: "https://leetcode.com/graphql"
-  base_url: "https://leetcode.com"
-  image_url: "https://leetcode.com/static/images/LeetCode_logo_rvs.png"
