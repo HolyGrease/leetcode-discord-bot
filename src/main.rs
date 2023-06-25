@@ -1,18 +1,19 @@
-mod configuration;
+mod config;
 mod discord;
 mod leetcode;
 
 use crate::discord::DiscordApi;
 use crate::leetcode::LeetCodeApi;
-use config::{Config, File};
+use crate::config::Config;
 use serde_json::json;
+use dotenv::dotenv;
+use envconfig::Envconfig;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let config = Config::builder()
-        .add_source(File::with_name("config.yaml"))
-        .build()?
-        .try_deserialize::<crate::configuration::Config>()?;
+    dotenv().ok();
+
+    let config = Config::init_from_env()?;
 
     let leetcode_api = LeetCodeApi::new(&config.leetcode.api_endpoint);
     // Fetch daily problem from LeetCode
