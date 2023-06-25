@@ -9,6 +9,7 @@ on:
 jobs:
    run:
     runs-on: ubuntu-latest
-    name: Run
-    run: |
-      docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/leetcode-discord-bot:latest
+    steps:
+      name: Run
+      run: |
+        docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/leetcode-discord-bot:latest
